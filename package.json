@@ -1,0 +1,48 @@
+{
+  "name": "gitbook-plugin-cuav-chapters",
+  "description": "CUAV collapsable chapters for convenient navigation within an gitbook",
+  "keywords": [
+    "cuav",
+    "gitbook",
+    "chapters"
+  ],
+  "main": "index.js",
+  "version": "1.0.0",
+  "engines": {
+    "gitbook": ">=3.0.0"
+  },
+  "devDependencies": {
+    "uglify-js": "2.7.5",
+    "node-sass": "4.5.0"
+  },
+  "scripts": {
+    "prepublish": "./src/build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://cong@git.cuav.net/r/gitbook/cuav-chapters.git"
+  },
+  "author": "黄伟枞. <weicong@cuav.net>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "email": "weicong@cuav.net"
+  },
+  "gitbook": {
+    "properties": {
+      "chaptersUrl": {
+        "type": "string",
+        "title": "远程加载章节目录的链接地址"
+      },
+      "summaryMaxSize": {
+        "type": "number",
+        "title": "自动收起章节目录数，当 useLimitExpanded 为 true 时，目录小于设置的数值时将不收起。",
+        "default": 20
+      },
+      "useLimitExpanded": {
+        "type": "boolean",
+        "title": "是否使用 summaryMaxSize 来限制目录的展开和收起",
+        "default": false
+      }
+    }
+  }
+}
