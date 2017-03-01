@@ -7,10 +7,11 @@
     "chapters"
   ],
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "gitbook": ">=3.0.0"
   },
+  "homepage": "http://cong@git.cuav.net/r/gitbook/cuav-chapters",
   "devDependencies": {
     "uglify-js": "2.7.5",
     "node-sass": "4.5.0"
