@@ -48,7 +48,9 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     const $chapterLinkNode
       = $(ARTICLES_CLASS).parent(CHAPTER_CLASS).children('a,span');
 
-    bindClickEvent($chapterLinkNode, $(TRIGGER_TEMPLATE));
+    for (var i = 0; i < $chapterLinkNode.length; ++i) {
+      bindClickEvent($chapterLinkNode.eq(i), $(TRIGGER_TEMPLATE));
+    }
   }
 
   /**
