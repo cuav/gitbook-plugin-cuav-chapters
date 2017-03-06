@@ -34,8 +34,6 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
       expand($('li.chapter.active'));
     }
 
-    console.log(chapterSize);
-
     ajaxSummary(chapterSize);
 
   }
@@ -158,6 +156,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
       $.ajax(cuavChaptersConfig.navUrl, {
         type: 'get',
         dataType: 'json',
+        cache: false,
         success: function(data) {
           if (data) {
             var newChapterSize = chapterSize;
