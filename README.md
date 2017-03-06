@@ -67,13 +67,13 @@
 
 #### 1.0.2
 
-Fix: 目录的 `url` 是 `javascript:;` 或 `#` 时，点击目录不显示下级菜单。
-Add: 设置 ajax 不缓存 `chaptersUrl` 获取的 json 文件。
-Change: 移除各文件开头的 License。
+* Fix: 目录的 `url` 是 `javascript:;` 或 `#` 时，点击目录不显示下级菜单。
+* Add: 设置 ajax 不缓存 `chaptersUrl` 获取的 json 文件。
+* Change: 移除各文件开头的 License。
 
 #### 1.0.1
 
-Add: `.npmignore` 文件，使其能正常工作。
+* Add: `.npmignore` 文件，使其能正常工作。
 
 ### License
 
