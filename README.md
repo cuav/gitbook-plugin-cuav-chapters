@@ -20,7 +20,7 @@
 {
   "pluginsConfig": {
     "cuav-chapters": {
-      "chaptersUrl": "http://xxx.xxx",
+      "chaptersUrl": "/xxx.json",
       "summaryMaxSize": 20,
       "useLimitExpanded": false
     }
@@ -60,6 +60,20 @@
 #### useLimitExpanded
 
 配置是否应用 `summaryMaxSize`；如果设置为 `false`，则 `summaryMaxSize` 失效，无论目录数多少，都收起目录。
+
+### 更新内容
+
+---
+
+#### 1.0.2
+
+Fix: 目录的 `url` 是 `javascript:;` 或 `#` 时，点击目录不显示下级菜单。
+Add: 设置 ajax 不缓存 `chaptersUrl` 获取的 json 文件。
+Change: 移除各文件开头的 License。
+
+#### 1.0.1
+
+Add: `.npmignore` 文件，使其能正常工作。
 
 ### License
 
