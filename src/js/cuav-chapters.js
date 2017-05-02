@@ -1,11 +1,11 @@
 require(['gitbook', 'jQuery'], function(gitbook, $) {
 
-  const TOGGLE_CLASSNAME = 'cuav-expanded';
-  const CHAPTER_CLASS = '.chapter';
-  const CHAPTER_CLASSNAME = 'chapter';
-  const ARTICLES_CLASS = '.articles';
-  const ARTICLES_CLASSNAME = 'articles';
-  const TRIGGER_TEMPLATE = '<i class="cuav-trigger fa"></i>';
+  var TOGGLE_CLASSNAME = 'cuav-expanded';
+  var CHAPTER_CLASS = '.chapter';
+  var CHAPTER_CLASSNAME = 'chapter';
+  var ARTICLES_CLASS = '.articles';
+  var ARTICLES_CLASSNAME = 'articles';
+  var TRIGGER_TEMPLATE = '<i class="cuav-trigger fa"></i>';
 
   // 展开目录的最大个数，当目录数小于此数值时，自动张开全部目录
   var summaryMaxSize = 20;
@@ -17,10 +17,10 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * 初始化
    * @function
    */
-  const init = function() {
+  var init = function() {
     chapterSize = 0;
 
-    const cuavChaptersConfig
+    var cuavChaptersConfig
       = gitbook.state.config.pluginsConfig['cuav-chapters'];
     
     if (cuavChaptersConfig.summaryMaxSize) { // 获取设置的目录展开最大值
@@ -42,8 +42,8 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * 绑定事件
    * @function
    */
-  const bindEvent = function() {
-    const $chapterLinkNode
+  var bindEvent = function() {
+    var $chapterLinkNode
       = $(ARTICLES_CLASS).parent(CHAPTER_CLASS).children('a,span');
 
     for (var i = 0; i < $chapterLinkNode.length; ++i) {
@@ -57,7 +57,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * @param  {jQuery} $node  目录节点（<a>/<span>）
    * @param  {jQuery} $iNode 目录的小图标
    */
-  const bindClickEvent = function($node, $iNode) {
+  var bindClickEvent = function($node, $iNode) {
     
     if ($node.is('span')
       || ($node.is('a') 
@@ -84,7 +84,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * @function
    * @param  {jQuery} $chapter 目录节点
    */
-  const toggle = function($chapter) {
+  var toggle = function($chapter) {
     if ($chapter.hasClass(TOGGLE_CLASSNAME)) { // 收起目录
       $chapter.removeClass(TOGGLE_CLASSNAME);
     } else { // 展开目录
@@ -97,10 +97,10 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * @function
    * @param  {jQuery} $chapter 要展开的目录
    */
-  const expand = function($chapter) {
+  var expand = function($chapter) {
     $chapter.addClass(TOGGLE_CLASSNAME);
 
-    const $chapterParent = $chapter.parent();
+    var $chapterParent = $chapter.parent();
     if (!$chapterParent.hasClass('summary')
       && !$chapterParent.hasClass('book-summary')
       && $chapter.length != 0) { // 递归展开父目录
@@ -112,10 +112,10 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * 使用限制展开目录
    * @function
    */
-  const limitExpanded = function() {
+  var limitExpanded = function() {
 
-    const calcSize = function(item) { // 计算目录数
-      const $item = $(item);
+    var calcSize = function(item) { // 计算目录数
+      var $item = $(item);
       if ($item.is('ul')) {
         $chapters = $item.children('li.chapter');
         chapterSize += $chapters.length;
@@ -147,9 +147,9 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
    * 远程目录
    * @function
    */
-  const ajaxSummary = function(chapterSize) {
+  var ajaxSummary = function(chapterSize) {
 
-    const cuavChaptersConfig
+    var cuavChaptersConfig
       = gitbook.state.config.pluginsConfig['cuav-chapters'];
 
     if (cuavChaptersConfig.navUrl) { // 有配置远程配置目录 url，添加远程配置目录
@@ -163,7 +163,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
 
             for (var i = 0; i < data.length; ++i) {
               ++newChapterSize;
-              const item = data[i];
+              var item = data[i];
               if (item.links) {
                 newChapterSize += item.links.length;
               }
@@ -181,8 +181,8 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
      * @param  {array} items            远程目录
      * @param  {number} newChapterSize 旧目录个数
      */
-    const buildSummary = function(items, newChapterSize) { // 构建目录
-      const $summary = $('.summary');
+    var buildSummary = function(items, newChapterSize) { // 构建目录
+      var $summary = $('.summary');
 
       // 决定构建后的整体目录是何种状态：
       // -1：之前展开，构建后展开
@@ -190,7 +190,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
       // 1：之前收起，构建后收起
       var status;
 
-      const cuavChaptersConfig
+      var cuavChaptersConfig
         = gitbook.state.config.pluginsConfig['cuav-chapters'];
 
       if (cuavChaptersConfig.useLimitExpanded) {
